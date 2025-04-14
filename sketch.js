@@ -30,10 +30,10 @@ function draw() {
   
   image(FFL, windowWidth/2 - windowHeight/4, 25, windowHeight/2, windowHeight/3.5);
   textFont(ESP);
-  textSize(windowWidth/15);
+  textSize(windowHeight/15);
   fill(61 , 94, 171);
   stroke(255);
   strokeWeight(4);
-  text('ESPAÑOL', windowWidth/2 - windowWidth/6, windowHeight/3);
+  text('ESPAÑOL', windowWidth/2 - windowHeight/6, windowHeight/3);
   
 }

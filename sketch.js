@@ -1,4 +1,3 @@
-
 function preload() {
   
   //sounds
@@ -28,87 +27,104 @@ function bgmusic() {
 
 var a = 1;
 if(a===1){
-var startMenu = true; // sees if the menu is open
+  var startMenu = true; // sees if the menu is open
 
-var br = 61; // play button red
-var bg = 94; // ~ green
-var bb = 171; // ~ blue
-var ps = 0; // ~ outline
+  var br = 61; // play button red
+  var bg = 94; // ~ green
+  var bb = 171; // ~ blue
+  var ps = 0; // ~ outline
 
-var ss = 30; // speaker button size
-var sx = 25; // ~ x
-var sy = 55; // ~ y
+  var ss = 30; // speaker button size
+  var sx = 25; // ~ x
+  var sy = 55; // ~ y
 
-var pause = false; // sees if the music is paused
-var xw = 0; // the X for the speaker button when the music is paused
+  var pause = false; // sees if the music is paused
+  var xw = 0; // the X for the speaker button when the music is paused
 
-var play = false; // sees if the play button has been pressed
-var pso = 0;
+  var play = false; // sees if the play button has been pressed
+  var pso = 0;
 
-var sx2 = 0;
-var arrow = function(ax, ay, as, lr, sw){
-  
-  strokeWeight(as/10+sw);
-    
-  if(lr === 2) {
-    line(ax, ay, ax + as/4*3, ay + as/2);
-    line(ax + as/4*3, ay + as/2, ax, ay + as);
+  var sx2 = 0;
+  var arrow = function(ax, ay, as, lr, sw){
+
+    strokeWeight(as/10+sw);
+
+    if(lr === 2) {
+      line(ax, ay, ax + as/4*3, ay + as/2);
+      line(ax + as/4*3, ay + as/2, ax, ay + as);
+    }
+    if(lr === 1) {
+      line(ax, ay, ax - as/4*3, ay + as/2);
+      line(ax - as/4*3, ay + as/2, ax, ay + as);
+    }
+
   }
-  if(lr === 1) {
-    line(ax, ay, ax - as/4*3, ay + as/2);
-    line(ax - as/4*3, ay + as/2, ax, ay + as);
-  }
-    
-}
-var left = false;
-var right = false;
-var aswl = 0;
-var aswr = 0;
+  var left = false;
+  var right = false;
+  var aswl = 0;
+  var aswr = 0;
 
-var a1 = 0;
-var a2 = 0;
-var b1 = 0;
-var b2 = 0;
-var c1 = 0;
-var c2 = 0;
-var d1 = 0;
-var d2 = 0;
-var e1 = 0;
-var e2 = 0;
-  
-var panelW
-var panelH
-var cornerRadius
-var yPos1
+  var a1 = 0;
+  var a2 = 0;
+  var b1 = 0;
+  var b2 = 0;
+  var c1 = 0;
+  var c2 = 0;
+  var d1 = 0;
+  var d2 = 0;
+  var e1 = 0;
+  var e2 = 0;
 
-var playing = false;
+  var panelW
+  var panelH
+  var cornerRadius
+  var yPos1
 
-var b5 = false;
-let sw5b = ['hombre', 'mujer', 'joven', 
-'alto', 'bajo', 'corto', 'guapo', 'largo', 'viejo', 
-'pelo', 'canoso', 'castaño', 'negro', 'rubio', 'pelirrojo',
-'delicioso', 'desear', 'plato', 'postre', 'rico',
-'azúcar', 'cuchara', 'cuchillo', 'pimienta', 'sal', 'servilleta', 'tenedor', 'vaso',
-'camarero', 'cuenta', 'menú',
-'querer', 'pedir', 'traer', 'traigo',
-'ahora', 'nada', 'otro', 'qué']
-let ew5b = ['man', 'woman', 'young',
-'short', 'good-looking', 'long', 'old', 
-'hair', 'gray', 'brown', 'black', 'blond', 'red-haired',
-'delicious', 'want', 'main', 'dish', 'dessert', 'rich', 'tasty',
-'sugar', 'spoon', 'knife', 'pepper', 'plate', 'salt', 'napkin', 'fork', 'glass',
-'waiter', 'waitress', 'bill', 'menu',
-'bring', 'will', 'I', 'me',
-'now', 'anything', 'else', 'another', 'how']
+  var playing = false;
 
-var osp = 0;
-var osp2 = 0;
-var cf = 255;
-var ro = 0;
-var rule = false;
-var close = false;
-var aswr2 = 2;
-var aswl2 = 2;
+  var b5 = false;
+  let sw5b = ['hombre', 'mujer', 'joven', 
+  'alto', 'bajo', 'corto', 'guapo', 'largo', 'viejo', 
+  'pelo', 'canoso', 'castaño', 'negro', 'rubio', 'pelirrojo',
+  'delicioso', 'desear', 'plato', 'postre', 'rico',
+  'azúcar', 'cuchara', 'cuchillo', 'pimienta', 'sal', 'servilleta', 'tenedor', 'vaso',
+  'camarero', 'cuenta', 'menú',
+  'querer', 'pedir', 'traer', 'traigo',
+  'ahora', 'nada', 'otro', 'qué']
+  let ew5b = ['man', 'woman', 'young',
+  'short', 'good-looking', 'long', 'old', 
+  'hair', 'gray', 'brown', 'black', 'blond', 'red-haired',
+  'delicious', 'want', 'main', 'dish', 'dessert', 'rich', 'tasty',
+  'sugar', 'spoon', 'knife', 'pepper', 'plate', 'salt', 'napkin', 'fork', 'glass',
+  'waiter', 'waitress', 'bill', 'menu',
+  'bring', 'will', 'I', 'me',
+  'now', 'anything', 'else', 'another', 'how']
+
+  var osp = 0;
+  var osp2 = 0;
+  var cf = 255;
+  var ro = 0;
+  var rule = false;
+  var close = false;
+  var aswr2 = 2;
+  var aswl2 = 2;
+
+  var b1r = 64;
+  var b1g = 94;
+  var b1b = 171;
+
+  var b2r = 64;
+  var b2g = 94;
+  var b2b = 171;
+
+  var st = 255;
+  var ip = 0;
+
+  var tutorial = true;
+  var tf = 255;
+  var es = 20;
+  var next = false;
+  var tt = 'click here to start the timer to see which team buzzes first';
 
 }
 
@@ -334,43 +350,77 @@ function draw() {
     
     if(a===1){
       
-    osp += 5;
-    osp2 += 5;
-    if (osp > 255) { osp -= 5; osp2 -= 5; }
+      osp += 5;
+      osp2 += 5;
+      if (osp > 255) { osp -= 5; osp2 -= 5; }
+      if (ip > 255) { ip -= 5; }
+
+      fill(33, 33, 33, osp);
+      rect(0, 0, windowWidth, windowHeight);
+
+      stroke(255, 255, 255, osp);
+
+      fill(b1r, b1g, b1b, osp);
+      rect(10, windowHeight/4, windowWidth/2-20, windowHeight/4*3-20, 20); //(76, 187, 23)
+      textAlign(CENTER);
+      textSize(windowHeight/8);
+      text('Team 1', windowWidth/4, windowHeight/5);
+
+      fill(b2r, b2g, b2b, osp);
+      rect(windowWidth/2+10, windowHeight/4, windowWidth/2-20, windowHeight/4*3-20, 20); // 185,5,4
+      text('Team 2', windowWidth/4*3, windowHeight/5);
       
-    fill(33, 33, 33, osp);
-    rect(0, 0, windowWidth, windowHeight);
+      noStroke();
+      fill(33, 33, 33, ip - 125);
+      rect(0, 0, windowWidth, windowHeight);
+      rect(0, windowHeight/3 - windowHeight/20, windowWidth, windowHeight/8);
+      fill(255, 255, 255, ip);
+      textSize(windowWidth/30);
+      text(tt, windowWidth/2, windowHeight/3);
+      fill(205, 20, 20, ip);
+      textSize(windowHeight/es);
+      text('next', windowWidth/2, windowHeight/3 + windowHeight/18)
       
-    fill(61, 94, 171, osp);
-    stroke(255, 255, 255, osp);
-    rect(10, windowHeight/4, windowWidth/2-20, windowHeight/4*3-20, 20);
+      stroke(255, 255, 255, osp);
+      fill(33, 33, 33, osp);
+      rect(windowWidth/2 - windowWidth/8, windowHeight/2, windowWidth/4, windowHeight/5, 20);
+      noStroke();
+      fill(st, st, st, osp);
+      textSize(windowHeight/8);
+      text('Start', windowWidth/2, windowHeight/2 + windowHeight/64*9);
+
+      if(a===1){
+        noStroke();
+        fill(0, 0, 0, osp2-122);
+        rect(0, 0, windowWidth, windowHeight);
+
+        fill(61, 94, 171, osp2);
+        stroke(255, 255, 255, osp2);
+        rect(windowWidth/15*2, windowHeight/15, windowWidth/15*11, windowHeight/15*13, 20);
+        fill(255, 255, 255, osp2);
+        noStroke();
+        textSize(windowHeight/15);
+        text('How To Play', windowWidth/2, windowHeight/15*2);
+        textSize(windowHeight/20);
+        text("• each round there's 8 vocab words \n • two people buzz to get the top word (highest wins) \n • whoever wins' side gets to go in order to guess the other answers \n • if the team gets three strikes then it goes to the other team to steal all the points (any answer can steal) \n • the team that is going can also pass it off so they don't get all their points stolen", windowWidth/15*2, windowHeight/15*3, windowWidth/15*11);
+
+        stroke(255, 255, 255, osp2);    
+        arrow(windowWidth/2 - windowWidth/15, windowHeight/15*12.25, windowHeight/15, 1, aswl2);
+        arrow(windowWidth/2 + windowWidth/15, windowHeight/15*12.25, windowHeight/15, 2, aswr2);
+      }
+
+      if(mouseX > windowWidth/2 + windowWidth/15 && mouseX < windowWidth/2 + windowWidth/15 + windowHeight/15 && mouseY > windowHeight/15*12.25 && mouseY < windowHeight/15*12.25 + windowHeight/15) { aswr2 = 3; }
+      else { aswr2 = 2; }
+      if(mouseX > windowWidth/2 - windowWidth/15 - windowHeight/15 && mouseX < windowWidth/2 - windowWidth/15 && mouseY > windowHeight/15*12.25 && mouseY < windowHeight/15*12.25 + windowHeight/15) { aswl2 = 3; }
+      else { aswl2 = 2; }
       
-    rect(windowWidth/2+10, windowHeight/4, windowWidth/2-20, windowHeight/4*3-20, 20);
-    
-    if(a===1){
-    noStroke();
-    fill(0, 0, 0, osp2-122);
-    rect(0, 0, windowWidth, windowHeight);
+      if(mouseX > windowWidth/2 - windowWidth/8 && mouseX < windowWidth/2 + windowWidth/8 && mouseY > windowHeight/2 && mouseY < windowHeight/2 + windowHeight/ 5) { st = 200; }
+      else { st = 255; }
       
-    fill(61, 94, 171, osp2);
-    stroke(255, 255, 255, osp2);
-    rect(windowWidth/15*2, windowHeight/15, windowWidth/15*11, windowHeight/15*13, 20);
-    fill(255, 255, 255, osp2);
-    noStroke();
-    textSize(windowHeight/15);
-    text('How To Play', windowWidth/2, windowHeight/15*2);
-    textSize(windowHeight/20);
-    text("• each round there's 8 vocab words \n • two people buzz to get the top word (highest wins) \n • whoever wins' side gets to go in order to guess the other answers \n • if the team gets three strikes then it goes to the other team to steal all the points (any answer can steal) \n • the team that is going can also pass it off so they don't get all their points stolen", windowWidth/15*2, windowHeight/15*3, windowWidth/15*11);
-    
-    stroke(255, 255, 255, osp2);    
-    arrow(windowWidth/2 - windowWidth/15, windowHeight/15*12.25, windowHeight/15, 1, aswl2);
-    arrow(windowWidth/2 + windowWidth/15, windowHeight/15*12.25, windowHeight/15, 2, aswr2);
-    }
-    
-    if(mouseX > windowWidth/2 + windowWidth/15 && mouseX < windowWidth/2 + windowWidth/15 + windowHeight/15 && mouseY > windowHeight/15*12.25 && mouseY < windowHeight/15*12.25 + windowHeight/15) { aswr2 = 3; }
-    else { aswr2 = 2; }
-    if(mouseX > windowWidth/2 - windowWidth/15 - windowHeight/15 && mouseX < windowWidth/2 - windowWidth/15 && mouseY > windowHeight/15*12.25 && mouseY < windowHeight/15*12.25 + windowHeight/15) { aswl2 = 3; }
-    else { aswl2 = 2; }
+      if(mouseY > windowHeight/3 - windowHeight/20 && mouseY < windowHeight/3 - windowHeight/20 + windowHeight/8) {
+        es = 18;
+      }
+      else { es = 20; }
       
     }    
     if(rule === true) {
@@ -388,6 +438,13 @@ function draw() {
       textSize(windowHeight/20);
       text("• at the end of each round the points are tallied up \n • on rounds 3&4 point doubled \n • on round 5 points tripled", windowWidth/15*2, windowHeight/15*3, windowWidth/15*11);
       
+      text('tutorial', windowWidth/2 - windowWidth/30, windowHeight/15*11);
+      stroke(255, 255, 255, ro);
+      strokeWeight(2);
+      fill(255, 255, 255, tf);
+      rect(windowWidth/2 + windowWidth/20, windowHeight/15*11 - windowHeight/35, windowHeight/40, windowHeight/40, 5);
+      
+      strokeWeight(10);
       stroke(255, 255, 255, ro);    
       arrow(windowWidth/2 - windowWidth/15, windowHeight/15*12.25, windowHeight/15, 1, aswl2);
       arrow(windowWidth/2 + windowWidth/15, windowHeight/15*12.25, windowHeight/15, 2, aswr2);
@@ -397,28 +454,47 @@ function draw() {
       rect(windowWidth/2 - windowWidth/6, windowHeight/2, windowWidth/3, windowHeight/8, 20);
       fill(61, 94, 171, ro);
       textSize(windowHeight/9);
-      text('close', windowWidth/2, windowHeight/2 + windowHeight/10);
+      text('Close', windowWidth/2, windowHeight/2 + windowHeight/10);
       
       if(mouseX > windowWidth/2 - windowWidth/6 && mouseX < windowWidth/2 + windowWidth/6 && mouseY > windowHeight/2 && mouseY < windowHeight/2 + windowHeight/8) {
         cf = 235;
       }
       else { cf = 255; }
       
+      if (tutorial === true) {
+        if(mouseX > windowWidth/2 + windowWidth/20 && mouseX < windowWidth/2 + windowWidth/20 + windowHeight/40 && mouseY > windowHeight/15*11 - windowHeight/35 && mouseY < windowHeight/15*11 - windowHeight/35 + windowHeight/40) {
+          tf -= 5;
+          if(tf < 0) { tf += 5; }
+        }
+        else {
+          tf += 5;
+          if (tf > 255) { tf -= 5; }
+        }
+      }
+      if (tutorial === false) {
+        if(mouseX > windowWidth/2 + windowWidth/20 && mouseX < windowWidth/2 + windowWidth/20 + windowHeight/40 && mouseY > windowHeight/15*11 - windowHeight/35 && mouseY < windowHeight/15*11 - windowHeight/35 + windowHeight/40) {
+          tf += 5;
+          if(tf > 255) { tf -= 5; }
+        }
+        else {
+          tf -= 5;
+          if (tf < 0) { tf += 5; }
+        }
+      }
+      
     }
-    
     if(close === true) {
       
       osp2 -= 5;
       ro = -5;
+      rule = false;
+      ip += 5;      
       
-      
-      
-    }    
+    }
     
   }
   
 }
-
 
 function mousePressed() {
   
@@ -450,6 +526,7 @@ function mousePressed() {
   }
   }
   
+  if(a===1){
   if (mouseX > windowWidth/14*17+sx2 && mouseX < windowWidth/14*17+sx2+panelW && mouseY > yPos1 && mouseY < yPos1+panelH) {
     playing = true;
   }
@@ -464,5 +541,15 @@ function mousePressed() {
   if(mouseX > windowWidth/2 - windowWidth/6 && mouseX < windowWidth/2 + windowWidth/6 && mouseY > windowHeight/2 && mouseY < windowHeight/2 + windowHeight/8 && playing === true && rule === true) {
     close = true;
   }
-
+  }
+  
+  if(mouseX > windowWidth/2 + windowWidth/20 && mouseX < windowWidth/2 + windowWidth/20 + windowHeight/40 && mouseY > windowHeight/15*11 - windowHeight/35 && mouseY < windowHeight/15*11 - windowHeight/35 + windowHeight/40 && tutorial === true) {
+    tutorial = false;
+  }
+  else if(tutorial === false) { tutorial = true; }
+  
+  if(mouseY > windowHeight/3 - windowHeight/20 && mouseY < windowHeight/3 - windowHeight/20 + windowHeight/8) {
+    next = true;
+  }
+    
 }
